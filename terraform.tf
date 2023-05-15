@@ -3,12 +3,6 @@
 
 terraform {
 
-  cloud {
-    workspaces {
-      name = "learn-terraform-eks"
-    }
-  }
-
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -25,10 +19,6 @@ terraform {
       version = "~> 4.0.4"
     }
 
-    cloudinit = {
-      source  = "hashicorp/cloudinit"
-      version = "~> 2.2.0"
-    }
   }
 
   required_version = "~> 1.3"
