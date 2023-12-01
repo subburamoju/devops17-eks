@@ -8,7 +8,7 @@ provider "aws" {
 data "aws_availability_zones" "available" {}
 
 locals {
-  cluster_name = "devops-eks-${random_string.suffix.result}"
+  cluster_name = "devops17-eks-${random_string.suffix.result}"
 }
 
 resource "random_string" "suffix" {
@@ -61,30 +61,30 @@ module "eks" {
 
   eks_managed_node_groups = {
     one = {
-      name = "node-group-1"
+      name = "frontend"
 
       instance_types = ["t3.small"]
 
-      min_size     = 0
+      min_size     = 1
       max_size     = 3
       desired_size = 2
     }
 
     two = {
-      name = "node-group-2"
+      name = "spring"
 
       instance_types = ["t3.small"]
 
-      min_size     = 0
+      min_size     = 1
       max_size     = 2
       desired_size = 1
     }
    frontend = {
-      name = "node-group-3"
+      name = "database"
 
       instance_types = ["t2.small"]
 
-      min_size     = 0
+      min_size     = 1
       max_size     = 2
       desired_size = 1
     }
